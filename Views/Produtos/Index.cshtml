@@ -1,0 +1,22 @@
+@model estoqueMVC.Models.ProdutosViewModel
+
+<div class="container-fluid">
+    @foreach (var produto in Model.Produtos)
+    {
+        <div>
+            <div class="row">
+                
+                <div class="col-md-8">
+                    <h3>@produto.Nome</h3>
+                    <p>@produto.Descricao</p>
+                    <p>@produto.Preco</p>
+                    <p>@produto.DataCadastro</p>
+                    <p>@produto.DataValidade</p>
+                   
+                </div>
+            </div>
+        </div>
+        
+    }
+
+</div>

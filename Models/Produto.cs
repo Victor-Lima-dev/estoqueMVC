@@ -13,6 +13,14 @@ namespace estoqueMVC.Models
         public decimal Preco { get; set; }
         public DateTime DataCadastro { get; set; }
         public DateTime DataValidade { get; set; }
+
+        public void CadastrarProduto(Produto produto)
+        {
+            produto.DataCadastro = DateTime.Now;
+            produto.DataValidade = DateTime.Now.AddYears(1);
+        }
+
+
         
         
     }
