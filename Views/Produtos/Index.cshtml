@@ -12,7 +12,16 @@
                     <p>@produto.Preco</p>
                     <p>@produto.DataCadastro</p>
                     <p>@produto.DataValidade</p>
-                   
+                    <input type="hidden" name="id" value="@produto.ProdutoId"/>
+                </div>
+                <div>
+                    <a asp-action="Editar" asp-route-id="@produto.ProdutoId">Editar</a>
+                    <div>
+    <form asp-action="Excluir" asp-route-id="@produto.ProdutoId" method="post">
+        <input type="submit" value="Excluir" />
+    </form>
+</div>
+                    
                 </div>
             </div>
         </div>

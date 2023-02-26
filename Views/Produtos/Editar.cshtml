@@ -1,0 +1,16 @@
+@model estoqueMVC.Models.Produto
+
+<div>
+    <form asp-controller="Produtos" asp-action="Editar" asp-route-id="@Model.ProdutoId" method="post">
+        <label for="Nome">Nome do produto</label>
+        <input type="text" name="Nome" id="Nome" placeholder="@Model.Nome" />
+        <label for="Preco">Preço</label>
+        <input type="number" name="Preco" id="Preco" />
+        <label for="Quantidade">Quantidade</label>
+        <input type="number" name="Quantidade" id="Quantidade" />
+        <label for="Descricao">Descricao</label>
+        <input type="text" name="Descricao" id="Descricao" />
+        <input type="hidden" name="Id" id="Id" value="@Model.ProdutoId" />
+        <input type="submit" value="Editar" />
+    </form>
+</div>

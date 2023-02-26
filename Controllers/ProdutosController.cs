@@ -32,6 +32,7 @@ namespace estoqueMVC.Controllers
             produtosViewModel.Produtos = produtos;
             return View(produtosViewModel);
         }
+        //rota para a pagina de cadastro
 
         [HttpGet("Cadastrar")]
         public IActionResult Cadastrar()
@@ -50,6 +51,35 @@ namespace estoqueMVC.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        [HttpGet("Editar/{id}")]
+        public IActionResult Editar(int id)
+        {
+            var produto = _context.Produtos.Find(id);
+            return View(produto);
+        }
+
+        [HttpPost("Editar/{id}")]
+public IActionResult Editar(int id, Produto produto)
+{
+    if (ModelState.IsValid)
+    {
+        produto.ProdutoId = id; // Definir o Id do produto
+        _context.Produtos.Update(produto);
+        _context.SaveChanges();
+        return RedirectToAction("Index");
+    }
+    return View();
+}
+    
+        [HttpPost ("Excluir/{id}")]
+        public IActionResult Excluir(int id)
+        {
+            var produto = _context.Produtos.Find(id);
+            _context.Produtos.Remove(produto);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
