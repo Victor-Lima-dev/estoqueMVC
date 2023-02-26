@@ -25,7 +25,7 @@ namespace estoqueMVC.Controllers
 
 
         [Route("Index")]
-         public IActionResult Index()
+        public IActionResult Index()
         {
             var produtos = _context.Produtos.ToList();
             var produtosViewModel = new ProdutosViewModel();
@@ -36,7 +36,7 @@ namespace estoqueMVC.Controllers
 
         [HttpGet("Cadastrar")]
         public IActionResult Cadastrar()
-        {        
+        {
             return View();
         }
 
@@ -45,7 +45,7 @@ namespace estoqueMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                produto.CadastrarProduto(produto);
+                
                 _context.Produtos.Add(produto);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
@@ -61,19 +61,19 @@ namespace estoqueMVC.Controllers
         }
 
         [HttpPost("Editar/{id}")]
-public IActionResult Editar(int id, Produto produto)
-{
-    if (ModelState.IsValid)
-    {
-        produto.ProdutoId = id; // Definir o Id do produto
-        _context.Produtos.Update(produto);
-        _context.SaveChanges();
-        return RedirectToAction("Index");
-    }
-    return View();
-}
-    
-        [HttpPost ("Excluir/{id}")]
+        public IActionResult Editar(int id, Produto produto)
+        {
+            if (ModelState.IsValid)
+            {
+                produto.ProdutoId = id; // Definir o Id do produto
+                _context.Produtos.Update(produto);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        [HttpPost("Excluir/{id}")]
         public IActionResult Excluir(int id)
         {
             var produto = _context.Produtos.Find(id);

@@ -15,5 +15,18 @@ namespace estoqueMVC.Models
 
         //relação de muitos para 1 com a classe Estoque
         public int EstoqueId { get; set; }
+
+        public Estoque Estoque { get; set; }
+
+        //validade
+        public DateTime Validade { get; set; }
+        //entrada   
+        public DateTime Entrada { get; set; }
+
+        public void AdicionarDataEntradaValidade(ItemEstoque itemEstoque)
+        {
+            itemEstoque.Entrada = DateTime.Now;
+            itemEstoque.Validade = itemEstoque.Entrada.AddMonths(6);
+        }
     }
 }

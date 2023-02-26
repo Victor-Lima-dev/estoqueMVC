@@ -1,31 +1,25 @@
 @model estoqueMVC.Models.ProdutosViewModel
 
 <div class="container-fluid">
-    @foreach (var produto in Model.Produtos)
-    {
-        <div>
-            <div class="row">
-                
-                <div class="col-md-8">
-                    <h3>@produto.Nome</h3>
-                    <p>@produto.Descricao</p>
-                    <p>@produto.Preco</p>
-                    <p>@produto.DataCadastro</p>
-                    <p>@produto.DataValidade</p>
-                    <input type="hidden" name="id" value="@produto.ProdutoId"/>
-                </div>
-                <div>
-                    <a asp-action="Editar" asp-route-id="@produto.ProdutoId">Editar</a>
-                    <div>
-    <form asp-action="Excluir" asp-route-id="@produto.ProdutoId" method="post">
-        <input type="submit" value="Excluir" />
-    </form>
-</div>
-                    
+    <div class="row">
+        @foreach (var produto in Model.Produtos)
+        {
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@produto.Nome</h5>
+                        <p class="card-text">@produto.Descricao</p>
+                        <p class="card-text"><strong>Preço:</strong> R$@produto.Preco</p>
+                        <form class="d-inline" asp-action="Editar" asp-route-id="@produto.ProdutoId" method="get">
+                            <button type="submit" class="btn btn-primary btn-sm">Editar</button>
+                        </form>
+                        <form class="d-inline" asp-action="Excluir" asp-route-id="@produto.ProdutoId" method="post">
+                            <button type="submit" class="btn btn-danger btn-sm ml-1">Excluir</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-    }
-
+        }
+    </div>
 </div>
+
