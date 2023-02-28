@@ -15,14 +15,25 @@
         <tbody>
             @foreach (var item in Model)
             {
+                <form asp-action="Apagar" asp-route-id="@item.ProdutoId" method="post">
+    
+                <input type="hidden" name="produtoId" value="@item.ProdutoId" />
                 <tr>
                     <td>@item.Produto.Nome</td>
                     <td>@item.Produto.Descricao</td>
                     <td>@item.Quantidade</td>
                     <td>@item.Produto.Preco</td>
                     <td>@item.Validade</td>
+                    <td>
+                        <a asp-action="Editar" asp-route-id="@item.ProdutoId">Editar</a> |
+                        <button type="submit">Apagar</button>
+                    </td>
                 </tr>
+</form>
+
             }
         </tbody>
     </table>
 </div>
+
+

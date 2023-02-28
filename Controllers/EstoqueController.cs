@@ -103,6 +103,16 @@ namespace estoqueMVC.Controllers
         }
 
 
+        //http post apagar
+        [HttpPost]
+        public IActionResult Apagar(int produtoId)
+        {
+            var itemEstoque = _context.ItensEstoque.FirstOrDefault(x => x.ProdutoId == produtoId);
+            _context.ItensEstoque.Remove(itemEstoque);
+            _context.SaveChanges();
+            return RedirectToAction("Listar");
+        }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
