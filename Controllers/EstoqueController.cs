@@ -114,6 +114,17 @@ namespace estoqueMVC.Controllers
         }
 
 
+        //http get detalhes
+        [HttpGet("detalhes/{produtoId}")]
+        public IActionResult Detalhes(int produtoId)
+        {
+            var itemEstoque = _context.ItensEstoque.FirstOrDefault(x => x.ProdutoId == produtoId);
+            itemEstoque.Produto = _context.Produtos.FirstOrDefault(x => x.ProdutoId == itemEstoque.ProdutoId);        
+            return View(itemEstoque);
+        }
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

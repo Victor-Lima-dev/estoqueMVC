@@ -25,7 +25,9 @@
                     <td>@item.Produto.Preco</td>
                     <td>@item.Validade</td>
                     <td>
-                        <a asp-action="Editar" asp-route-id="@item.ProdutoId">Editar</a> |
+                        <a asp-action="Editar" asp-route-id="@item.ProdutoId">Editar</a>
+                        <a asp-action="Detalhes" asp-route-id="@item.ProdutoId">Detalhes</a>
+                        
                         <button type="submit">Apagar</button>
                     </td>
                 </tr>

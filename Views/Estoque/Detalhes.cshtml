@@ -1,0 +1,26 @@
+@model estoqueMVC.Models.ItemEstoque
+
+<div class="container-fluid">
+    <h2>Detalhes do item de estoque</h2>
+    <dl class="row">
+        <dt class="col-sm-3">Produto</dt>
+        <dd class="col-sm-9">@Model.Produto.Nome</dd>
+
+        <dt class="col-sm-3">Descrição</dt>
+        <dd class="col-sm-9">@Model.Produto.Descricao</dd>
+
+        <dt class="col-sm-3">Quantidade</dt>
+        <dd class="col-sm-9">@Model.Quantidade</dd>
+
+        <dt class="col-sm-3">Preço</dt>
+        <dd class="col-sm-9">@Model.Produto.Preco.ToString("C")</dd>
+
+        <dt class="col-sm-3">Data de validade</dt>
+        <dd class="col-sm-9">@Model.Validade.ToString("dd/MM/yyyy")</dd>
+    </dl>
+
+    <div class="form-group">
+        <a asp-action="Editar" asp-route-id="@Model.ProdutoId" class="btn btn-primary">Editar</a>
+        <a asp-action="Listar" class="btn btn-secondary">Voltar</a>
+    </div>
+</div>
