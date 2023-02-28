@@ -1,0 +1,28 @@
+@model IEnumerable<estoqueMVC.Models.ItemEstoque>
+
+<div class="container-fluid">
+    <h2>Produtos no estoque</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome do produto</th>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Data de validade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Produto.Nome</td>
+                    <td>@item.Produto.Descricao</td>
+                    <td>@item.Quantidade</td>
+                    <td>@item.Produto.Preco</td>
+                    <td>@item.Validade</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

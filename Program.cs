@@ -1,4 +1,5 @@
 using estoqueMVC.context;
+using estoqueMVC.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 // registrar banco de dados 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//registrar estoque, para poder usar o estoque em outras classes
+builder.Services.AddScoped<Estoque>();
+
+
 
 var app = builder.Build();
 

@@ -78,6 +78,14 @@ namespace estoqueMVC.Controllers
         {
             var produto = _context.Produtos.Find(id);
             _context.Produtos.Remove(produto);
+
+            //excluir os itens do estoque relacionados ao produto
+            var itensEstoque = _context.ItensEstoque.Where(x => x.ProdutoId == id).ToList();
+            foreach (var item in itensEstoque)
+            {
+                _context.ItensEstoque.Remove(item);
+            }
+
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

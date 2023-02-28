@@ -15,6 +15,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Vitor\Desktop\code\estoqueMVC
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Vitor/Desktop/code/estoqueMVC/Views/Estoque/Adicionar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxBZGljaW9uYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vitor/Desktop/code/estoqueMVC/Views/Estoque/Gerar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxHZXJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vitor/Desktop/code/estoqueMVC/Views/Estoque/listar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxsaXN0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Vitor/Desktop/code/estoqueMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
