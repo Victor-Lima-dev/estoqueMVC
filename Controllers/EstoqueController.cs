@@ -124,6 +124,31 @@ namespace estoqueMVC.Controllers
         }
 
 
+        //http get editar
+        [HttpGet("editar/{produtoId}")]
+        public IActionResult Editar(int produtoId)
+        {
+            var itemEstoque = _context.ItensEstoque.FirstOrDefault(x => x.ProdutoId == produtoId);
+            //recuperar o produto relacionado ao itemEstoque
+            itemEstoque.Produto = _context.Produtos.FirstOrDefault(x => x.ProdutoId == itemEstoque.ProdutoId);
+            //viewbag com a lista de produtos
+            ViewBag.Produtos = _context.Produtos.ToList();
+            return View(itemEstoque);
+        }
+
+        //http post editar o produto todo, recebendo um produto
+        [HttpPost("editar/{produtoId}")]
+        public IActionResult Editar(int produtoId, int quantidade)
+        {
+            var itemEstoque = _context.ItensEstoque.FirstOrDefault(x => x.ProdutoId == produtoId);
+            itemEstoque.Quantidade = quantidade;
+            _context.ItensEstoque.Update(itemEstoque);
+            _context.SaveChanges();
+            return RedirectToAction("Listar");
+        }
+
+
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
